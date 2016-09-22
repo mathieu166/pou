@@ -6,6 +6,10 @@ module.exports = {
         {
  			pattern: /^\/pou[\/]?$/,
             target: require('../homepage')
+        },
+        {
+            pattern: /^\/searchrequest[\/]?$/,
+            target: require('../searchrequest')
         }
     ],
     

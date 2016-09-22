@@ -5,12 +5,26 @@
     <meta charset="UTF-8">
     <title>Experimentation</title>
     <link rel="stylesheet" href="homepage.css">
-</head>
 
+</head>
+<script src="https://code.jquery.com/jquery-3.1.0.js"></script>
+<script>
+function sendrequest() {
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+         alert('test');
+        }
+    };
+    xhttp.open("GET", "/searchplease?item=" + jQuery('item_input') , true);
+    xhttp.send();
+}
+
+</script>
 
 <body>
+<input type="text" name="item" id="item_input" onfocusout="sendrequest()"/><input type="submit"/>
 <div id="results">
-    <input type="text" name="item"/><input type="submit"/>
     <div>
         <table id="itemlist">
             <tr>
