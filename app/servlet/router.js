@@ -4,8 +4,10 @@ module.exports = {
 	
     routes: [
         {
- 						pattern: /^\/pou[\/]?$/,
-            target: require('../supplyusage')
+
+ 			pattern: /^\/pou[\/]?$/,
+            target: require('../homepage')
+
         }
     ],
     
