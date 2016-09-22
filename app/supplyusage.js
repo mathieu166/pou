@@ -6,7 +6,7 @@ homepage = function(request, response, database) {
   var $ = cheerio.load(html);
 
   response.write($.html());
-	response.end();
+  response.end();
   
 };
 
