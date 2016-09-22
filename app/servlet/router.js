@@ -5,7 +5,7 @@ module.exports = {
     routes: [
         {
  						pattern: /^\/pou[\/]?$/,
-            target: require('../homepage')
+            target: require('../supplyusage')
         }
     ],
     
@@ -16,7 +16,7 @@ module.exports = {
 			}
 		}
 		if (request.url == '/') {
-			return require('../homepage');
+			return require('../supplyusage');
 		}
 		return servecontent('app');
 	}
