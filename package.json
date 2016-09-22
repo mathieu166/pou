@@ -1,5 +1,5 @@
 {
-  "name": "calendar",
+  "name": "pou",
   "version": "0.0.1",
   "main": "app/servlet/web.js",
   "dependencies": {},
@@ -12,7 +12,7 @@
     "mocha": "~3.0.2"
   },
   "engines": {
-    "node": "5.2.0",
+    "node": "4.5.0",
     "npm": "3.5.1"
   },
   "scripts": {
