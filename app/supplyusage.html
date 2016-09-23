@@ -42,6 +42,17 @@ function sendrequest() {
     });
 }
 
+function getItemList() {
+    $.ajax({
+      url: '/autosearchrequest',
+      data: {"productinput": $('#item_input').val()},
+      success: function(data){
+        $('.resultsfound').html(data);
+      },
+      dataType: "text"
+    });
+}
+
 $(document).on('keypress', function(e) {
     var id = $(e.target).attr('id');
 
@@ -71,7 +82,12 @@ $(document).on('keypress', function(e) {
         <div class="col-md-10">
             <div class="input-group input-group-lg">
                 <span class="input-group-addon" id="sizing-addon1">Item</span>
-                <input type="text" class="form-control" placeholder="Start typing..." aria-describedby="sizing-addon1" name="item" id="item_input" onkeyup="" />
+                <input type="text" class="form-control" placeholder="Start typing..." aria-describedby="sizing-addon1" name="item" id="item_input" onkeyup="getItemList()" />
+                <table class="resultsfound">
+                    <tr class="resultsRow">
+                        <td class="search_item_cell"></td>
+                    </tr>
+                </table>
             </div>
         </div>
         <div class="col-md-2">

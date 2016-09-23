@@ -16,4 +16,8 @@ method.get = function(value) {
     return this.productArray[value];
 }
 
+method.size = function() {
+    return this.productArray.length;
+}
+
 module.exports = ProductList;
