@@ -6,10 +6,12 @@ var $;
 module.exports = {
 
     createItemRow : function(template, values){
-        var row = cheerio.load(template.clone().html());
-        row('.item_cell').text(values['description']);
-        row('.quantity_cell').text(values['quantity']);
+        var row = cheerio.load('<tr class="result_row"> </tr>');
+        var content = cheerio.load(template.html());
 
+        content('.item_cell').text(values['description']);
+        content('.quantity_cell').text(values['quantity']);
+        row('tr').append(content.html());
         return row;
     }
 

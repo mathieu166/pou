@@ -14,6 +14,9 @@ describe('Item result parser', function(){
 
     it('creates item list row', function(){
         var template = $('.result_row').first();
+
+        console.log(template.html());
+
         var row = itemlist.createItemRow(template, {"description": "patate", "quantity": 3});
 
         expect(row('.item_cell').text()).toBe('patate');

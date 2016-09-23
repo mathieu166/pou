@@ -44,6 +44,7 @@ function sendrequest() {
 
 $(document).on('keypress', function(e) {
     var id = $(e.target).attr('id');
+
     if(id == undefined || id != 'item_input'){
         $('#item_input').html(e.keyChar);
         $('#item_input').focus();
@@ -59,7 +60,7 @@ $(document).on('keypress', function(e) {
     <div class="row" style="margin-top:20px">
         <div class="col-md-12">
             <span>Location</span>
-            <select class="selectpicker" data-live-search="true">
+            <select class="selectpicker">
                 <option data-tokens="sr1a">Supply Room 1A</option>
                 <option data-tokens="sr2a">Supply Room 2A</option>
                 <option data-tokens="room1 bed1 1">Room 1 bed 1</option>
@@ -70,7 +71,7 @@ $(document).on('keypress', function(e) {
         <div class="col-md-10">
             <div class="input-group input-group-lg">
                 <span class="input-group-addon" id="sizing-addon1">Item</span>
-                <input type="text" class="form-control" placeholder="Start typing..." aria-describedby="sizing-addon1" name="item" id="item_input" onkeyup=""/>
+                <input type="text" class="form-control" placeholder="Start typing..." aria-describedby="sizing-addon1" name="item" id="item_input" onkeyup="" />
             </div>
         </div>
         <div class="col-md-2">
@@ -87,7 +88,7 @@ $(document).on('keypress', function(e) {
         </tr>
         <tr class="result_row">
             <td class="item_cell">Seringue 5 pouces P0S31</td>
-            <td class="quantity_cell">5</td>
+            <td class="quantity_cell">1</td>
             <td></td>
         </tr>
         <tr class="result_row">

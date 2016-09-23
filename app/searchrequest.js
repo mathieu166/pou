@@ -13,11 +13,9 @@ searchrequest = function(request, response, database) {
     var product = database.findProduct(query.productrequest);
 
     if(product){
-        itemlist.createItemRow(template, {"description": product.getDescription(), "quantity": 1});
+        var row = itemlist.createItemRow(template, {"description": product.getDescription(), "quantity": 1});
 
-        var html = '<tr class="result_row"><td class="item_cell">'+product.getDescription()+'</td><td class="quantity_cell">5</td><td></td></tr>';
-
-        response.write(html);
+        response.write(row.html());
     }
     response.end();
   
