@@ -5,65 +5,77 @@
     <meta charset="UTF-8">
     <title>Experimentation</title>
     <link rel="stylesheet" href="homepage.css">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
 </head>
 <script src="https://code.jquery.com/jquery-3.1.0.js"></script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script>
+
+$( document ).ready(function() {
+    $('#item_input').focus();
+});
+
+
 function sendrequest() {
-    var xhttp = new XMLHttpRequest();
-    xhttp.onreadystatechange = function() {
-        if (this.readyState == 4 && this.status == 200) {
-         alert('test');
-        }
-    };
-    xhttp.open("GET", "/searchplease?item=" + jQuery('item_input') , true);
-    xhttp.send();
+    $.ajax({
+      url: '/searchrequest',
+      data: {"productrequest": $('#item_input').val()},
+      success: function(data){
+        $('#itemlist').append(data);
+        $('#item_input').val('');
+        $('#item_input').focus();
+      },
+      dataType: "text"
+    });
 }
 
 </script>
 
 <body>
-<input type="text" name="item" id="item_input" onfocusout="sendrequest()"/><input type="submit"/>
-<div id="results">
-    <div>
-        <table id="itemlist">
-            <tr>
-                <th>Item</th>
-                <th>Quantity</th>
-                <th></th>
-            </tr>
-            <tr class="result_row">
-                <td class="item_cell">Seringue 5 pouces P0S31</td>
-                <td class="quantity_cell">5</td>
-                <td></td>
-            </tr>
-            <tr class="result_row">
-                <td class="item_cell">Seringue 3 pouces P0S32</td>
-                <td class="quantity_cell">6</td>
-                <td></td>
-            </tr>
-            <tr class="result_row">
-                <td class="item_cell">Papier de toilette</td>
-                <td class="quantity_cell">1</td>
-                <td></td>
-            </tr>
-            <tr class="result_row">
-                <td class="item_cell">Petite bobette en dentelle</td>
-                <td class="quantity_cell">5</td>
-                <td></td>
-            </tr>
-            <tr class="result_row">
-                <td class="item_cell">Serrure de porte</td>
-                <td class="quantity_cell">6</td>
-                <td></td>
-            </tr>
-            <tr class="result_row">
-                <td class="item_cell">Raque à bicycle</td>
-                <td class="quantity_cell">1</td>
-                <td></td>
-            </tr>
-        </table>
-    </div>
+<div id="results" class="container">
+    <input type="text" name="item" id="item_input"/><input type="button" onclick="sendrequest()" value="Send" />
+    <table class="table table-condensed table-striped" id="itemlist" border="1">
+        <tr>
+            <th style="width: 600px">Item</th>
+            <th>Quantity</th>
+            <th></th>
+        </tr>
+        <tr class="result_row">
+            <td class="item_cell">Seringue 5 pouces P0S31</td>
+            <td class="quantity_cell">5</td>
+            <td></td>
+        </tr>
+        <tr class="result_row">
+            <td class="item_cell">Seringue 3 pouces P0S32</td>
+            <td class="quantity_cell">6</td>
+            <td></td>
+        </tr>
+        <tr class="result_row">
+            <td class="item_cell">Papier de toilette</td>
+            <td class="quantity_cell">1</td>
+            <td></td>
+        </tr>
+        <tr class="result_row">
+            <td class="item_cell">Petite bobette en dentelle</td>
+            <td class="quantity_cell">5</td>
+            <td></td>
+        </tr>
+        <tr class="result_row">
+            <td class="item_cell">Serrure de porte</td>
+            <td class="quantity_cell">6</td>
+            <td></td>
+        </tr>
+        <tr class="result_row">
+            <td class="item_cell">Raque à bicycle</td>
+            <td class="quantity_cell">1</td>
+            <td></td>
+        </tr>
+    </table>
+
 </div>
 </body>
 
