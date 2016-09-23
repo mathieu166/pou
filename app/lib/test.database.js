@@ -6,11 +6,11 @@ function TestDatabase() {
 }
 
 TestDatabase.prototype.findProduct = function(productId){
-    return products.get(productId);
+    return products.get(productId.toLowerCase());
 }
 
 TestDatabase.prototype.createProduct = function(productId, description){
-    products.set(productId, new Product(productId, description))
+    products.set(productId.toLowerCase(), new Product(productId, description))
 }
 
 module.exports = TestDatabase;
