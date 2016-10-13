@@ -10,6 +10,10 @@ module.exports = {
         {
             pattern: /^\/searchrequest[\/]?\??.*$/,
             target: require('../searchrequest')
+        },
+        {
+            pattern: /^\/autosearchrequest[\/]?\??.*$/,
+            target: require('../autosearchrequest')
         }
     ],
     
