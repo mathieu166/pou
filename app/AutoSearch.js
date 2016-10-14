@@ -24,7 +24,7 @@ method.getProductList = function(){
 method.displayProductList = function(value) {
     var listToDisplay = new ProductList(new Array());
     for(i=0; i < this.productList.size(); i++){
-        if(this.productList.get(i).getProductNum().startsWith(value)){
+        if(this.productList.get(i).getProductNum().toLowerCase().startsWith(value.toLowerCase())){
             listToDisplay.add(this.productList.get(i));
         }
     }
